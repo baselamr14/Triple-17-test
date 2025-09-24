@@ -1,0 +1,68 @@
+<odoo>
+    <record id="building_action" model="ir.actions.act_window">
+        <field name ="name">building</field>
+        <field name ="res_model">building</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="building_menu" name="buildings" parent="property_L1_menu" action="building_action"/>
+    <record id="building_view_tree" model="ir.ui.view">
+        <field name="name">building_tree</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+            <tree class="header_custom">
+                <field name="no"/>
+                <field name="description"/>
+                <field name="code"/>
+                <field name="active"/>
+
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="building_view_search" model="ir.ui.view">
+        <field name="name">building_search</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+            <search>
+
+                <field name="no"/>
+                <field name="code"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="building_view_form" model="ir.ui.view">
+        <field name="name">building_form</field>
+        <field name="model">building</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group >
+                        <group string="General Info">
+
+                            <field name="no"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group string="Additional Info">
+                            <field name="code" />
+                            <field name="description" />
+
+                        </group>
+                    </group>
+                                    </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+
+
+            </form>
+        </field>
+    </record>
+</odoo>
